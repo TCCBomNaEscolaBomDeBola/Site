@@ -1,0 +1,16 @@
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.deps.json
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.pdb
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.ComponentModel.DataAnnotations.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.Security.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.ComponentModel.DataAnnotations.xml
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\bin\Debug\netstandard2.0\System.Security.xml
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.csprojAssemblyReference.cache
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.csproj.CoreCompileInputs.cache
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.AssemblyInfoInputs.cache
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.AssemblyInfo.cs
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.csproj.CopyComplete
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Domain\obj\Debug\netstandard2.0\Araretama.BomNaEscolaBomDeBola.Domain.pdb

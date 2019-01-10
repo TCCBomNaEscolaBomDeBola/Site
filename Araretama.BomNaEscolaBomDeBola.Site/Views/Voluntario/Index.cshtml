@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Araretama.BomNaEscolaBomDeBola.Domain.Voluntario>
+@{
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (Model != null)
+{
+    <div class="table-responsive">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title"> @Html.DisplayNameFor(model => model.Nome) </th>
+                    <th class="column-title"> @Html.DisplayNameFor(model => model.Senha) </th>
+                    <th class="column-title"> @Html.DisplayNameFor(model => model.Email) </th>
+                    <th class="column-title">@Html.DisplayNameFor(model => model.Contato) </th>
+                    <th class="column-title">Ver </th>
+                    <th class="column-title">Editar</th>
+                    <th class="column-title">Excluir</th>
+  
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="even pointer">
+                        <td class=" ">@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td class=" ">@Html.DisplayFor(modelItem => item.Senha) </td>
+                        <td class=" ">@Html.DisplayFor(modelItem => item.Email) </td>
+                        <td class=" "> @Html.DisplayFor(modelItem => item.Contato)</td>
+                        <td class=" "> <a class="btn btn-primary"  href="@Url.Action("Details", "Voluntario" , new { id = item.Id })"><i class="fa fa-plus"></i></a> </td>
+                        <td class=" "> <a class="btn btn-warning"  href="@Url.Action("Edit", "Voluntario" , new { id = item.Id })"><i class="fa fa-pencil"></i></a> </td>
+                        <td class=" "> <a  class="btn btn-danger" href="@Url.Action("Delete", "Voluntario" , new { id = item.Id })"><i class="fa fa-trash"></i></a> </td>
+                    </tr>
+                }
+
+              
+            </tbody>
+        </table>
+
+    </div>
+}
+
+
+       

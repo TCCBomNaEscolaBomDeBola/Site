@@ -1,0 +1,43 @@
+﻿@model Araretama.BomNaEscolaBomDeBola.Domain.Presenca
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Presenca</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Presente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Presente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDAula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDAula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

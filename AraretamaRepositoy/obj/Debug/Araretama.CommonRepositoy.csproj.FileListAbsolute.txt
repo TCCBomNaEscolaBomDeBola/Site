@@ -1,0 +1,10 @@
+F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Debug\AraretamaRepositoy.dll
+F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Debug\AraretamaRepositoy.pdb
+F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\Araretama.CommonRepositoy.csproj.CoreCompileInputs.cache
+F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\AraretamaRepositoy.dll
+F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\AraretamaRepositoy.pdb
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Debug\AraretamaRepositoy.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Debug\AraretamaRepositoy.pdb
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\Araretama.CommonRepositoy.csproj.CoreCompileInputs.cache
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\AraretamaRepositoy.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Debug\AraretamaRepositoy.pdb

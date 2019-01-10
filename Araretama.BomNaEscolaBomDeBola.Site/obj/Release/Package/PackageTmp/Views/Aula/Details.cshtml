@@ -1,0 +1,51 @@
+﻿@model Araretama.BomNaEscolaBomDeBola.Domain.Aula
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Aula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEnvio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEnvio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Horario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTurma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTurma)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
