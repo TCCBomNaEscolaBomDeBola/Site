@@ -98,12 +98,12 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 
         // POST: Aluno/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Aluno aluno, FormCollection collection)
         {
             try
             {
-                Aluno aluno = new Aluno
-                {
+              //  Aluno aluno = new Aluno
+               /* {
                     Bairro = collection["bairro"],
                     Cep = collection["cep"],
                     Cidade = collection["cidade"],
@@ -119,6 +119,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
                     Responsavel = collection["responsavel"],
                     Serie = collection["serie"]
                 };
+                */
 
                 aluno.Id = id;
                 _repository.Update(aluno);

@@ -415,14 +415,10 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Host.SystemWeb.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Cookies.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.dll
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Facebook.dll
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Google.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.OAuth.dll
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Twitter.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Web.Infrastructure.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\MySql.Data.dll
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\MySql.Data.Entity.EF6.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Newtonsoft.Json.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Owin.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\PagedList.dll
@@ -445,7 +441,6 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Araretama.Common.Repository.Entity.dll.config
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\AraretamaRepositoy.pdb
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\MySql.Data.xml
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\MySql.Data.Entity.EF6.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\PagedList.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\PagedList.Mvc.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\System.Web.Helpers.xml
@@ -465,10 +460,7 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.xml
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Facebook.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Cookies.xml
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Google.xml
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.Twitter.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.Owin.Security.OAuth.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\System.Diagnostics.DiagnosticSource.xml

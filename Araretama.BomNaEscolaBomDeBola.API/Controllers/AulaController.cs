@@ -39,7 +39,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public Aula Get(int id)
         {
-            return _repository.ByKey(id);
+            return AulaRepository.DetalhesAula(id);
         }
 
         // POST api/values
@@ -99,16 +99,16 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
      
 
         // GET api/values/
-        [System.Web.Http.HttpGet]
-        public Aula Chamada(int id)
-        {
-            return AulaRepository.DetalhesAula(id);
-        }
+        //[System.Web.Http.HttpGet]
+        //public Aula Chamada(int id)
+        //{
+          //  return AulaRepository.DetalhesAula(id);
+        //}
 
         // POST api/values
      //   [EnableCors(origins: "*", methods: "*", headers: "*")]
-        [System.Web.Http.HttpPost]
-        public IHttpActionResult Chamada(int id, Aula aula, FormCollection collection)
+        //[System.Web.Http.HttpPost]
+        /*public IHttpActionResult Chamada(int id, Aula aula, FormCollection collection)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
+        }*/
 
 
     }
