@@ -1,62 +1,72 @@
 ﻿@model Araretama.BomNaEscolaBomDeBola.Domain.Aula
 
 @{
-    ViewBag.Title = "Edit";
+    /**/
+
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<h2>Edit</h2>
-
+<h2><strong>Aula -  @Html.DisplayFor(model => model.DataAula) </strong></h2>
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Aula</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+    <div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataChamada, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataChamada, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataChamada, "", new { @class = "text-danger" })
-            </div>
+        <div class="col-md-8">
+            <p>
+                <strong> @Html.DisplayNameFor(model => model.DataEnvio) </strong>:  @Html.DisplayFor(model => model.DataEnvio)
+            </p>
+
+            <p>
+                <strong> @Html.DisplayNameFor(model => model.IDTurma)</strong>: @Html.DisplayFor(model => model.Turma.Nome)
+            </p>
+            <p>
+                <strong> @Html.DisplayNameFor(model => model.AlunosPresentes)</strong>: @Html.DisplayFor(model => model.AlunosPresentes)
+            </p>
+
         </div>
+        <div class="col-md-4">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataEnvio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataEnvio, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <button class="btn btn btn-round btn-success" type="submit" value="Salvar"> <i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Horario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Horario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Horario, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDTurma, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IDTurma, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IDTurma, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <a href="@Url.Action("Details", "Aula", new { id = Model.Id })" class="btn btn-round btn-default">
+                <i class="fa fa-undo"></i>
+                <span>
+                    Voltar
+                </span>
+            </a>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
         </div>
     </div>
+    if (Model.Presencas != null)
+    {
+        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Presencas[0].Aluno.Id)</th>
+                    <th> @Html.DisplayNameFor(model => model.Presencas[0].Presente)</th>
+                    <th>@Html.DisplayNameFor(model => model.Presencas[0].Aluno.Nome)</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Presencas.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Id)</td>
+
+                        <td> @Html.EditorFor(model => model.Presencas[i].Presente, new { @class = " checkbox checkbox_flat-blue" })
+
+                        </td>
+                        <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Nome)</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

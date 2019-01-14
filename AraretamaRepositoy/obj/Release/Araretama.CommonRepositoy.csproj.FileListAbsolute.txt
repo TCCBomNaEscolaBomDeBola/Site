@@ -6,7 +6,6 @@ F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\
 F:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Release\AraretamaRepositoy.pdb
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Release\AraretamaRepositoy.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\bin\Release\AraretamaRepositoy.pdb
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Release\Araretama.CommonRepositoy.csprojAssemblyReference.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Release\Araretama.CommonRepositoy.csproj.CoreCompileInputs.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Release\AraretamaRepositoy.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\AraretamaRepositoy\obj\Release\AraretamaRepositoy.pdb

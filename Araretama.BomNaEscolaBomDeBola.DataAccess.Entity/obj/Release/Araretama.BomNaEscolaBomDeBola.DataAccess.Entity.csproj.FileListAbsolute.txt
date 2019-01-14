@@ -232,6 +232,7 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csprojAssemblyReference.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco1.resources
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco2.resources
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco3.resources
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csproj.GenerateResource.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csproj.CoreCompileInputs.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csproj.CopyComplete

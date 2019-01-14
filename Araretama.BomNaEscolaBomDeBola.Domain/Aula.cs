@@ -34,6 +34,17 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Turma")]
         public Turma Turma { get; set; }
 
+        [NotMapped]
+        [DisplayName("Alunos Presentes")]
+        public int AlunosPresentes
+        {
+            get
+            {
+                return Presencas.Where(p => p.Presente).ToList().Count();
+            }
+        }
+
+
         [DisplayName("Turma")]
         public int IDTurma { get; set; }
 

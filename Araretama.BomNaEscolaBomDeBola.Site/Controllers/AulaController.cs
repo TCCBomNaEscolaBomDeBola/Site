@@ -157,12 +157,12 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         // GET: Aula/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_repository.ByKey(id));
+            return View(AulaRepository.DetalhesAula(id));
         }
 
         // POST: Aula/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Aula aula,FormCollection collection)
         {
             try
             {
@@ -180,7 +180,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             }
             catch
             {
-                return View();
+                return View(AulaRepository.DetalhesAula(id));
             }
         }
 

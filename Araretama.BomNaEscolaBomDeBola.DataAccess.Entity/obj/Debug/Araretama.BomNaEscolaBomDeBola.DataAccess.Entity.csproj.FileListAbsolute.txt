@@ -240,3 +240,4 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Debug\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco1.resources
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Debug\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csproj.GenerateResource.cache
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Debug\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco2.resources
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Debug\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco3.resources

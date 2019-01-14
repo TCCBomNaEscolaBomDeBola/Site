@@ -28,6 +28,8 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
 
             Property(p => p.DataNasc)
                 .HasColumnName("ALU_DATANASC");
+                
+               
 
             Property(p => p.Escola)
                 .HasColumnName("ALU_ESCOLA");

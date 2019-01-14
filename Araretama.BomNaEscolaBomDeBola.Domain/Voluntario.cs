@@ -10,6 +10,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
     {
         public int Id { get; set; }
 
+        [DisplayName("Turma")]
         public int IDTurma { get; set; }
 
 
