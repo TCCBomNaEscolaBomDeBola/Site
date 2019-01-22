@@ -18,9 +18,6 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
                 .HasColumnName("ALU_ID")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
-            Property(p => p.IDTurma)
-                .HasColumnName("TUR_ID")
-                .IsRequired();
             Property(p => p.Nome)
                 .HasColumnName("ALU_NOME")
                 .HasMaxLength(200)
@@ -28,9 +25,8 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
 
             Property(p => p.DataNasc)
                 .HasColumnName("ALU_DATANASC");
-                
-               
 
+           
             Property(p => p.Escola)
                 .HasColumnName("ALU_ESCOLA");
 
@@ -68,6 +64,15 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
             Property(p => p.Observacao)
                 .HasColumnName("ALU_OBSERVACAO");
 
+
+            HasMany(c => c.Turma)
+             .WithMany(c => c.Alunos)
+             .Map(c =>
+             {
+                 c.ToTable("TB_ALU_TUR");
+                 c.MapLeftKey("ALU_ID");
+                 c.MapRightKey("TUR_ID");
+             });
 
 
 

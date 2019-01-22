@@ -11,10 +11,13 @@ namespace Araretama.BomNaEscolaBomDeBola.Repository.Entity
 {
     public class PresencaRepository : AbstractRepository<Presenca, int>
     {
+        private DbContext _context;
 
         public PresencaRepository(DbContext dbContext) : base(dbContext)
         {
-
+            _context = dbContext;
         }
+
+        
     }
 }

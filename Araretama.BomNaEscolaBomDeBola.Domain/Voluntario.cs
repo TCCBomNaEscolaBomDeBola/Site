@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace Araretama.BomNaEscolaBomDeBola.Domain
@@ -13,10 +15,9 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Turma")]
         public int IDTurma { get; set; }
 
-
-        public Turma Turma { get; set; }
-
-        //[Required(ErrorMessage = "O nome deve ser informado")]
+        
+        public ICollection<Turma> Turma { get; set; }
+        [Required(ErrorMessage = "O nome deve ser informado")]
         [DisplayName("Nome")]
         public string Nome { get; set; }
         
@@ -35,5 +36,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Contato")]
         public string Contato { get; set; }
 
+
+        public virtual List<Voluntario> Voluntarios { get; set; }
     }
 }

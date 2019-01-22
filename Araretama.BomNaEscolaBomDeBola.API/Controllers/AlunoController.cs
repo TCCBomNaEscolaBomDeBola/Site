@@ -27,13 +27,20 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public List<Aluno> All()
         {
-            return _repository.All();
+
+                return _repository.All();
         }
 
         [System.Web.Http.HttpGet]
         public Aluno GetAlunoByID(int key)
         {
             return _repository.ByKey(key);
+        }
+        // GET api/values/
+        [System.Web.Http.HttpGet]
+        public Aluno Get(int id)
+        {
+            return _repository.ByKey(id);
         }
 
         [System.Web.Http.HttpPost]

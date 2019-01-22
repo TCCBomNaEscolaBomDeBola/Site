@@ -34,7 +34,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
         {
             List<Aula> a = _repository.All();
-            return View(a.ToPagedList((page ?? 1), 5));
+            return View(a.ToPagedList((page ?? 1), 20));
         }
 
         // GET: Aula/Details/5
@@ -138,19 +138,22 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
-                foreach (var i in aula.Presencas)
+                aula.Id = id;
+                aula.DataEnvio = DateTime.Now;
+                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
+                foreach (var i in presencas)
                 {
                     PresencaRepository.Insert(i);
                 }
-                aula.DataEnvio = DateTime.Now;
+
                 _repository.Update(aula);
 
-                
+
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(AulaRepository.DetalhesAula(id));
             }
         }
 
@@ -166,20 +169,28 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
-                Aula aula1 = new Aula
+                aula.DataAula = Convert.ToDateTime(collection["DataAula"]);
+                aula.Id = id;
+                aula.DataEnvio = DateTime.Now;
+                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
+                foreach (Presenca i in presencas)
                 {
-                    DataAula = Convert.ToDateTime(collection["DataAula"]),
-                    DataEnvio = Convert.ToDateTime(collection["DataEnvio"]),
-                    // = Convert.ToInt32(collection["IDTurma"])
-
-                };
-                aula1.Id = id;
-
-                _repository.Update(aula1);
+                    try
+                    {
+                        PresencaRepository.Update(i);
+                    }
+                    catch
+                    {
+                        PresencaRepository.Insert(i);
+                    }
+                    
+                }
+                _repository.Update(aula);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                ViewData["erro"] = "Não foi possível salvar os dados, tente novament";
                 return View(AulaRepository.DetalhesAula(id));
             }
         }

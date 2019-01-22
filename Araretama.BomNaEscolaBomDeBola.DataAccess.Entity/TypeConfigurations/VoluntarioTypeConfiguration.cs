@@ -38,7 +38,14 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
               .HasColumnName("VOL_SENHA");
 
 
-
+            HasMany(c => c.Turma)
+           .WithMany(c => c.Voluntarios)
+           .Map(c =>
+           {
+               c.ToTable("TB_VOL_TUR");
+               c.MapLeftKey("VOL_ID");
+               c.MapRightKey("TUR_ID");
+           });
 
 
         }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace Araretama.BomNaEscolaBomDeBola.Domain
@@ -29,10 +30,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [Range(0, 99)]
         public int IdadeMaxima { get; set; }
 
-        [DisplayName("Quantidade de Aluno")]
-        [Range(0, 1000)]
-        [NotMapped]
-        public int QuantidadeDeAlunos { get; set; }
+
 
         [DisplayName("Horário Inicial")]
         [DataType(DataType.Time)]
@@ -45,12 +43,29 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Dia da Semana")]
         public string DiaSemana { get; set; }
 
-        [DisplayName("Voluntários")]
-        [NotMapped]
-        public List<Voluntario>Voluntarios { get; set; }
+        public virtual List<Aluno> Alunos { get; set; }
 
-        [DisplayName("Alunos")]
+
+        [DisplayName("Voluntários")]
+        public virtual List<Voluntario> Voluntarios { get; set; }
+
+        [DisplayName("Quantidade de Aluno")]
+        [Range(0, 1000)]
         [NotMapped]
-        public List<Aluno> Alunos { get; set; }
+        public int QuantidadeDeAlunos
+        {
+            get
+            {
+                if (Alunos != null)
+                {
+                    return Alunos.Count;
+                }
+                return 0;
+
+            }
+
+
+
+        }
     }
 }

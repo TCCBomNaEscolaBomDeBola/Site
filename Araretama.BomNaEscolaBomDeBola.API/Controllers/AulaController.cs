@@ -49,8 +49,22 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         {
             try
             {
-                _repository.Insert(aula);
-                return CreatedAtRoute("DefaultApi", new { controller = "aula", id = aula.Id }, aula);
+                aula.DataEnvio = DateTime.Now;
+                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
+                foreach (Presenca i in presencas)
+                {
+                    try
+                    {
+                        PresencaRepository.Update(i);
+                    }
+                    catch
+                    {
+                        PresencaRepository.Insert(i);
+                    }
+
+                }
+                _repository.Update(aula);
+                return CreatedAtRoute("DefaultApi", new { controller = "aula", Id = aula.Id }, aula);
 
             }
             catch (Exception ex)
@@ -67,6 +81,22 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         {
             try
             {
+
+                aula.Id = id;
+                aula.DataEnvio = DateTime.Now;
+                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
+                foreach (Presenca i in presencas)
+                {
+                    try
+                    {
+                        PresencaRepository.Update(i);
+                    }
+                    catch
+                    {
+                        PresencaRepository.Insert(i);
+                    }
+
+                }
                 _repository.Update(aula);
                 return CreatedAtRoute("DefaultApi", new { controller = "aula", Id = aula.Id }, aula);
 

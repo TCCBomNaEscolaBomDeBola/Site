@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace Araretama.BomNaEscolaBomDeBola.Domain
 {
     public class Aluno
     {
-       
+        public Aluno()
+        {
+            Turma = new List<Turma>();
+
+        }
+
         public int Id { get; set; }
 
         [DisplayName("Turma")]
-        public int IDTurma { get; set; }
-
-        public Turma Turma { get; set; }
+        [Required(ErrorMessage = "O nome deve ser informado")]
+        public virtual List<Turma> Turma { get; set; }
 
         /*  [Required(ErrorMessage = "O nome deve ser informado")]
           [DisplayName("Nome")]
        
         [StringLength(100, MinimumLength = 5)]
        */
-        
+        [Required(ErrorMessage = "O nome deve ser informado")]
         public string Nome { get; set; }
 
 
@@ -35,12 +40,12 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 
         [DisplayName("Escola")]
         [StringLength(100, MinimumLength = 5)]
-       public string Escola { get; set; }
+        public string Escola { get; set; }
 
         [DisplayName("Série")]
         public string Serie { get; set; }
 
-       [DisplayName("Responsável")]
+        [DisplayName("Responsável")]
         public string Responsavel { get; set; }
 
         [DisplayName("Contato")]
@@ -69,9 +74,16 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Complemento")]
         public string Complemento { get; set; }
 
-       [DisplayName("Observação")]
-       public string Observacao { get; set; }
+        [DisplayName("Observação")]
+        public string Observacao { get; set; }
     }
+    /*
+    public class AlunoTurma{
+        public int Id { get; set; }
+        public int Id_Aluno { get; set; }
+        public int Id_Turma{ get; set; }
+    }
+    */
 }
 
 

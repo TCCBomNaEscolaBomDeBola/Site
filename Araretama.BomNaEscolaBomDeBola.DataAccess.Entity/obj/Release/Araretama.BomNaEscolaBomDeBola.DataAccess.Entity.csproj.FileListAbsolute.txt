@@ -238,3 +238,6 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.csproj.CopyComplete
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.pdb
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco4.resources
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco5.resources
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity\obj\Release\Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations.banco6.resources

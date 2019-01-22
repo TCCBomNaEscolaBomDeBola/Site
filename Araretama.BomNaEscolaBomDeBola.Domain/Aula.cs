@@ -40,7 +40,17 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         {
             get
             {
-                return Presencas.Where(p => p.Presente).ToList().Count();
+                try
+                {
+                    return Presencas.Where(p => p.Presente).ToList().Count();
+                }
+                catch
+                {
+                    return 0;
+                }
+
+             
+                
             }
         }
 

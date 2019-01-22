@@ -35,11 +35,8 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public List<Turma> Get()
         {
+
             List<Turma> a = _repository.All();
-            foreach (var t in a)
-            {
-                t.QuantidadeDeAlunos = AlunoRepository.QuantidadeAlunosTurma(t.Id);
-            }
             return a;
         }
 
@@ -47,11 +44,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public Turma Get(int id)
         {
-            Turma turma = _repository.ByKey(id);
-            turma.Alunos = AlunoRepository.AlunosTurma(id);
-            turma.Voluntarios = VoluntarioRepository.VoluntarioTurma(id);
-
-            return turma;
+            return _repository.ByKey(id);
         }
 
        /* // POST api/values

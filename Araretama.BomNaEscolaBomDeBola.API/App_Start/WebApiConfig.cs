@@ -19,7 +19,9 @@ namespace Araretama.BomNaEscolaBomDeBola.API
             headers: "*"
             );
             config.EnableCors(politicas);
-   
+            // ReferenceLoopHandling.Ignore will solve the Self referencing loop detected error
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
 
             config.MapHttpAttributeRoutes();
 
@@ -32,7 +34,10 @@ namespace Araretama.BomNaEscolaBomDeBola.API
              name: "DefaultApi2",
              routeTemplate: "api/{controller}/{key}",
              defaults: new { key = RouteParameter.Optional }
+            
          );
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

@@ -7,38 +7,43 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<h2><strong>Aula -  @Html.DisplayFor(model => model.DataAula) </strong></h2>
 @using (Html.BeginForm())
 {
-    <div>
+    @Html.AntiForgeryToken()
+<div>
 
-        <div class="col-md-8">
-            <p>
-                <strong> @Html.DisplayNameFor(model => model.DataEnvio) </strong>:  @Html.DisplayFor(model => model.DataEnvio)
-            </p>
+    <h2><strong>Aula -  @Html.DisplayFor(model => model.DataAula) </strong></h2>
+    @Html.HiddenFor(model => model.IDTurma)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.DataAula)
 
-            <p>
-                <strong> @Html.DisplayNameFor(model => model.IDTurma)</strong>: @Html.DisplayFor(model => model.Turma.Nome)
-            </p>
-            <p>
-                <strong> @Html.DisplayNameFor(model => model.AlunosPresentes)</strong>: @Html.DisplayFor(model => model.AlunosPresentes)
-            </p>
+    <div class="col-md-8">
+        <p>
+            <strong> @Html.DisplayNameFor(model => model.DataEnvio) </strong>:  @Html.DisplayFor(model => model.DataEnvio)
+        </p>
 
-        </div>
-        <div class="col-md-4">
+        <p>
+            <strong> @Html.DisplayNameFor(model => model.IDTurma)</strong>: @Html.DisplayFor(model => model.Turma.Nome)
+        </p>
+        <p>
+            <strong> @Html.DisplayNameFor(model => model.AlunosPresentes)</strong>: @Html.DisplayFor(model => model.AlunosPresentes)
+        </p>
 
-            <button class="btn btn btn-round btn-success" type="submit" value="Salvar"> <i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
-
-
-            <a href="@Url.Action("Details", "Aula", new { id = Model.Id })" class="btn btn-round btn-default">
-                <i class="fa fa-undo"></i>
-                <span>
-                    Voltar
-                </span>
-            </a>
-
-        </div>
     </div>
+    <div class="col-md-4">
+
+        <button class="btn btn btn-round btn-success" type="submit" value="Salvar"> <i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
+
+
+        <a href="@Url.Action("Details", "Aula", new { id = Model.Id })" class="btn btn-round btn-default">
+            <i class="fa fa-undo"></i>
+            <span>
+                Voltar
+            </span>
+        </a>
+
+    </div>
+</div>
     if (Model.Presencas != null)
     {
         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap jambo_table bulk_action" cellspacing="0" width="100%">
@@ -51,12 +56,18 @@
                 </tr>
             </thead>
             <tbody>
+
                 @for (int i = 0; i < Model.Presencas.Count; i++)
                 {
+                    @Html.HiddenFor(model => model.Presencas[i].IDAluno)
+                    @Html.HiddenFor(model => model.Presencas[i].IDAula)
+                    @Html.HiddenFor(model => model.Presencas[i].id)
                     <tr>
                         <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Id)</td>
 
-                        <td> @Html.EditorFor(model => model.Presencas[i].Presente, new { @class = " checkbox checkbox_flat-blue" })
+                        <td>
+                            @Html.EditorFor(model => model.Presencas[i].Presente, new { htmlAttributes = new { @class = "icheckbox_flat-blue" } })
+                            
 
                         </td>
                         <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Nome)</td>
@@ -69,4 +80,3 @@
     }
 
 }
-

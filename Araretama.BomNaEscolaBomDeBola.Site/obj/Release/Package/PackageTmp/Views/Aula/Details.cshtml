@@ -71,13 +71,8 @@
                     <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Id)</td>
                     
                     <td>
-                        <div class="checkbox">
-                            <label>
-                                <input class="icheckbox_flat-blue"  disabled="disabled" data-val="@Model.Presencas[i].Presente"  id="@Model.Presencas[i].Presente" name="@Model.Presencas[0].Presente" type="checkbox" value="@Model.Presencas[0].Presente" >
-                            </label>
-                        </div>
                         
-                        @Html.EditorFor(model => model.Presencas[i].Presente, new { @class = "checkbox flat" })
+                        @Html.EditorFor(model => model.Presencas[i].Presente, new { htmlAttributes = new { @class = "icheckbox_flat-blue", @disabled = "disabled" } })
                     </td>
                     <td>@Html.DisplayFor(model => model.Presencas[i].Aluno.Nome)</td>
 

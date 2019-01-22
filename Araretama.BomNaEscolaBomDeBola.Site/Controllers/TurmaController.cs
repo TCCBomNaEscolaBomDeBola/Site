@@ -32,10 +32,6 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
            
             List<Turma> a = _repository.All();
-            foreach(var t in a)
-            {
-                t.QuantidadeDeAlunos = AlunoRepository.QuantidadeAlunosTurma(t.Id);
-            }
             return View(a.ToPagedList((page ?? 1), 5));
         }
 

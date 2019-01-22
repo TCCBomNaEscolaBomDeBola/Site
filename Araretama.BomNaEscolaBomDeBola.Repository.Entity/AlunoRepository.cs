@@ -21,18 +21,15 @@ namespace Araretama.BomNaEscolaBomDeBola.Repository.Entity
         {
             return _context.Set<Aluno>().Where(p => p.Id == IdTurma).ToList();
         }
-        public int QuantidadeAlunosTurma(int IdTurma)
+      
+        public void getAluno (int key)
         {
-            try
-            {
-                return _context.Set<Aluno>().Count(p => p.IDTurma == IdTurma);
-            }
-            catch
-            {
-                return 0;
-            }
-           
+            Aluno aluno =  _context.Set<Aluno>().Where(p => p.Id == key).FirstOrDefault();
+            aluno.Turma = new List<Turma>();
+          //  aluno.Turma = _context.Set<Turma>().Where()
+        //    return
         }
+       
     }
 
    

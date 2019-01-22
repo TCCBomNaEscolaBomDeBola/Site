@@ -6,6 +6,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Linq.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,15 +25,29 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         public AlunoController()
         {
             TurmaRepository = new TurmaRepository(new BomNaEscolaBomDeBolaDbContext());
+
         }
 
 
 
         // GET: Aluno
-        public ActionResult Index(int? page, string sortOrder="", string currentFilter="", string searchString="")
+        public ActionResult Index(int? pagina, string ordemLetra="", string searchString="")
         {
-            List<Aluno> a = _repository.All();
-            return View(a.ToPagedList((page ?? 1), 5));
+            List<Aluno> alunos =  _repository.All();
+
+            if (ordemLetra.Trim() != "")
+            {
+                alunos = alunos.Where(p=> (p.Nome.ToUpper().StartsWith(ordemLetra.ToUpper()))).ToList();
+                alunos.OrderBy(p => p.Nome);
+            }
+            if (searchString.Trim() != "")
+            {
+                alunos = alunos.Where(p => (p.Nome.ToUpper().Contains(searchString.ToUpper()))).ToList();
+                alunos.OrderBy(p => p.Nome);
+            }
+
+
+            return View(alunos.ToPagedList((pagina ?? 1), 12));
         }
 
         // GET: Aluno/Details/5
@@ -40,6 +55,8 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             return View(_repository.ByKey(id));
         }
+
+
 
         // GET: Aluno/Create
         public ActionResult Create()
@@ -50,7 +67,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 
             List<Turma> Turmas = TurmaRepository.All();
 
-     
+        
            /* foreach (var item in Turmas)
             {
   
@@ -65,69 +82,87 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
   */
 
             ViewBag.turmas = Turmas;
-         //   ViewBag.lista_turmas2 = dropDown;
-         //   ViewBag.lista_turmas = lista_turmas;
-            return View();
+            //   ViewBag.lista_turmas2 = dropDown;
+            //   ViewBag.lista_turmas = lista_turmas;
+            Aluno aluno = new Aluno();
+            aluno.Turma.Add(new Turma());
+            return View(aluno);
         }
 
         // POST: Aluno/Create
         [HttpPost]
-        public ActionResult Create(Aluno aluno, FormCollection collection)
+        public ActionResult Create(Aluno aluno, List<Turma> turmas, FormCollection collection)
         {
             try
             {
-                
+
+
 
                 _repository.Insert(aluno);
+                
+                foreach (Turma t in turmas)
+                {
+                    Turma tur = TurmaRepository.ByKey(Convert.ToInt32(t.Id));
+                    tur.Alunos = new List<Aluno>();
+                    tur.Alunos.Add(aluno);
+                    tur.Voluntarios = new List<Voluntario>();
+                    aluno.Turma.Add(tur);
+                    TurmaRepository.Update(tur);
+
+
+                }
+
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
 
                 List<Turma> Turmas = TurmaRepository.All();
                 ViewBag.turmas = Turmas;
-                return View();
+                return View(aluno);
             }
         }
 
         // GET: Aluno/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_repository.ByKey(id));
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            Aluno aluno = _repository.ByKey(id);
+            if (aluno.Turma.Count < 1)
+            {
+                aluno.Turma.Add(new Turma());
+            }
+            return View(aluno);
         }
 
         // POST: Aluno/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Aluno aluno, FormCollection collection)
+        public ActionResult Edit(int id, Aluno aluno, List<Turma> turmas, FormCollection collection)
         {
             try
             {
-              //  Aluno aluno = new Aluno
-               /* {
-                    Bairro = collection["bairro"],
-                    Cep = collection["cep"],
-                    Cidade = collection["cidade"],
-                    Complemento = collection["complemento"],
-                    Contato = collection["contato"],
-                    DataNasc = collection["dataNasc"],
-                    Escola = collection["escola"],
-                    Estado = collection["estado"],
-                    Logradouro = collection["logradouro"],
-                    Nome = collection["nome"],
-                    Numero = collection["numero"],
-                    Observacao = collection["observacao"],
-                    Responsavel = collection["responsavel"],
-                    Serie = collection["serie"]
-                };
-                */
-
-                aluno.Id = id;
                 _repository.Update(aluno);
+                aluno.Turma = new List<Turma>();
+                foreach (Turma t in turmas)
+                {
+                    Turma tur = TurmaRepository.ByKey(Convert.ToInt32(t.Id));
+                    tur.Alunos = new List<Aluno>();
+                    tur.Voluntarios = new List<Voluntario>();
+                    tur.Alunos[tur.Alunos.IndexOf(tur.Alunos.Where(p => p.Id == aluno.Id).FirstOrDefault())] = aluno;
+                    aluno.Turma.Add(tur);
+                    TurmaRepository.Update(tur);
+                }
+
+
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+
+                List<Turma> Turmas = TurmaRepository.All();
+                ViewBag.turmas = Turmas;
+                return View(aluno);
             }
         }
 
@@ -152,6 +187,15 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
                 return View(_repository.ByKey(id));
 
             }
+        }
+
+   
+        public ActionResult CreateTurma()
+        {
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            Turma turma = new Turma();
+            return PartialView("Turmas", turma);
         }
     }
 }

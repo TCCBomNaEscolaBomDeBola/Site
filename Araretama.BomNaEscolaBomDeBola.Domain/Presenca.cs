@@ -13,7 +13,6 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Codigo")]
         public int id { get; set; }
 
-        [Required]
         [DisplayName("Aluno")]
         [NotMapped]
         public Aluno Aluno { get; set; }

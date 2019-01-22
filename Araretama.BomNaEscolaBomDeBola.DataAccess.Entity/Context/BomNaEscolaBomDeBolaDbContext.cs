@@ -13,6 +13,9 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Context
     {
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Voluntario> Voluntarios { get; set; }
+        public DbSet<Turma> Turma  { get; set; }
+        public DbSet<Aula> Aula { get; set; }
+        public DbSet<Presenca> Presenca { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
