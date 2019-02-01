@@ -10,13 +10,19 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 {
     public class Voluntario
     {
+        public Voluntario()
+        {
+            this.Turma = new List<Turma>();
+        }
         public int Id { get; set; }
 
         [DisplayName("Turma")]
         public int IDTurma { get; set; }
 
         
-        public ICollection<Turma> Turma { get; set; }
+        public List<Turma> Turma { get; set; }
+
+
         [Required(ErrorMessage = "O nome deve ser informado")]
         [DisplayName("Nome")]
         public string Nome { get; set; }
@@ -36,7 +42,5 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Contato")]
         public string Contato { get; set; }
 
-
-        public virtual List<Voluntario> Voluntarios { get; set; }
     }
 }

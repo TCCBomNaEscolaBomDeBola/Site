@@ -227,6 +227,8 @@
     <script src="~/lib/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="~/lib/nprogress/nprogress.js"></script>
+    <script src="~/lib/iCheck/icheck.min.js"></script>
+
     <!-- Chart.js -->
     <script src="~/lib/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
@@ -235,6 +237,22 @@
     <script src="~/lib/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="~/lib/iCheck/icheck.min.js"></script>
+
+
+    <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/lib/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+
+
+
     <!-- Skycons -->
     <script src="~/lib/skycons/skycons.js"></script>
     <!-- Flot -->
@@ -261,6 +279,38 @@
     <script src="~/lib/iCheck/icheck.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/Scripts/custom.min.js"></script>
+
+
+    <script type="text/javascript">
+        $('#datatable-responsive').DataTable({
+            
+            "language": {
+                "sEmptyTable": "Nenhum registro encontrado",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "_MENU_ resultados por página",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum registro encontrado",
+                "sSearch": "",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último"
+                },
+                
+                searchPlaceholder: "Pesquisar por ...",
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                    "sSortDescending": ": Ordenar colunas de forma descendente"
+                }
+            }
+        })
+    </script>
 
 
 

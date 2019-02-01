@@ -44,67 +44,11 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public Turma Get(int id)
         {
-            return _repository.ByKey(id);
+            Turma turma = _repository.ByKey(id);
+            turma.Alunos = AlunoRepository.AlunosTurma(id);
+            turma.Voluntarios = VoluntarioRepository.VoluntarioTurma(id);
+            return turma;
         }
-
-       /* // POST api/values
-        [EnableCors(origins: "*", methods: "*", headers: "*")]
-        [System.Web.Http.HttpPost]
-        public IHttpActionResult Post([FromBody]Turma turma)
-        {
-            try
-            {
-                _repository.Insert(turma);
-                return CreatedAtRoute("DefaultApi", new { controller = "turma", id = turma.Id }, turma);
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-
-            }
-        }
-
-        // PUT api/values/5
-
-        [System.Web.Http.HttpPut]
-        public IHttpActionResult Put(int id, [FromBody]Turma turma)
-        {
-            try
-            {
-                _repository.Update(turma);
-                return CreatedAtRoute("DefaultApi", new { controller = "turma", Id = turma.Id }, turma);
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-
-            }
-        }
-
-
-        [EnableCors(origins: "*", methods: "*", headers: "*")]
-        [System.Web.Http.HttpDelete]
-        public IHttpActionResult Delete(int id)
-        {
-            try
-            {
-                _repository.DeleteByKey(id);
-                return Ok();
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-
-            }
-
-        }
-        */
-
-
-     
 
     }
 }

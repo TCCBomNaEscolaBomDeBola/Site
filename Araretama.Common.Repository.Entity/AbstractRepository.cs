@@ -56,6 +56,5 @@ namespace Araretama.Common.Repository.Entity
             _context.SaveChanges();
         }
 
-       
     }
 }

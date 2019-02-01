@@ -27,7 +27,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Repository.Entity
 
         public List<Voluntario> VoluntarioTurma(int IdTurma)
         {
-            return _context.Set<Voluntario>().Where(p => p.Id == IdTurma).ToList();
+            return _context.Set<Voluntario>().Where(p => p.IDTurma == IdTurma).ToList();
         }
         public int QuantidadeVoluntarioTurma(int IdTurma)
         {

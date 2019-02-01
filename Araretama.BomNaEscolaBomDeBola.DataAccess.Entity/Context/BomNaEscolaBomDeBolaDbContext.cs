@@ -11,11 +11,14 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Context
 {
     public class BomNaEscolaBomDeBolaDbContext : DbContext
     {
-        public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Voluntario> Voluntarios { get; set; }
+        public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<Voluntario> Voluntario { get; set; }
         public DbSet<Turma> Turma  { get; set; }
         public DbSet<Aula> Aula { get; set; }
         public DbSet<Presenca> Presenca { get; set; }
+        public DbSet<AlunoTurma> AlunoTurma { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +30,9 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Context
             modelBuilder.Configurations.Add(new TurmaTypeConfiguration());
             modelBuilder.Configurations.Add(new PresencaTypeConfiguration());
             modelBuilder.Configurations.Add(new AulaTypeConfiguration());
+            modelBuilder.Configurations.Add(new AlunoTurmaTypeConfiguration());
+
+
         }
     }
 }

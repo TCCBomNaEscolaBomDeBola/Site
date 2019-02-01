@@ -5,12 +5,19 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Timers;
 using System.Web;
 
 namespace Araretama.BomNaEscolaBomDeBola.Domain
 {
     public class Turma
     {
+        public Turma()
+        {
+           Alunos = new List<Aluno>();
+           Voluntarios = new List<Voluntario>();
+        }
+
 
         public int Id { get; set; }
 
@@ -34,15 +41,16 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 
         [DisplayName("Horário Inicial")]
         [DataType(DataType.Time)]
-        public DateTime HorarioInicial { get; set; }
+        public TimeSpan HorarioInicial { get; set; }
 
         [DisplayName("Horário Final")]
         [DataType(DataType.Time)]
-        public DateTime HorarioFinal { get; set; }
+        public TimeSpan HorarioFinal { get; set; }
 
         [DisplayName("Dia da Semana")]
         public string DiaSemana { get; set; }
 
+        [DisplayName("Alunos")]
         public virtual List<Aluno> Alunos { get; set; }
 
 

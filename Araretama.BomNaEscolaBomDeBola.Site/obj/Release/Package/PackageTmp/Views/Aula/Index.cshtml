@@ -21,7 +21,7 @@
                     @Html.DisplayNameFor(model => model.DataEnvio)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IDTurma)
+                    @Html.DisplayNameFor(model => model.Turma.Nome)
                 </th>
                 <th class="column-title">Ver </th>
                 <th class="column-title">Editar</th>
@@ -41,7 +41,7 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.IDTurma)
+                    @Html.DisplayFor(modelItem => item.Turma.Nome)
                 </td>
 
                 <td class=" "> <a class="btn btn-primary" href="@Url.Action("Details", "Aula" , new { id = item.Id })"><i class="fa fa-plus"></i></a> </td>

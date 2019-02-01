@@ -14,17 +14,21 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
         public AulaTypeConfiguration()
         {
             ToTable("TB_AULA");
+              
+
             Property(p => p.Id)
                     .HasColumnName("AUL_ID")
                     .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                     .IsRequired();
 
-            Property(p => p.IDTurma)
-                  .HasColumnName("TUR_ID")
-                  .IsRequired();
+            Property(p => p.TurmaID)
+                            .HasColumnName("TUR_ID")
+                            .IsOptional();
+
             Property(p => p.DataEnvio)
                  .HasColumnName("AUL_DATAENVIO")
                  .IsOptional();
+
             Property(p => p.DataAula)
                  .HasColumnName("AUL_DATAAULA")
                  .IsOptional();

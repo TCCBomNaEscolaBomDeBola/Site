@@ -12,15 +12,15 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
     {
         public Aluno()
         {
-            Turma = new List<Turma>();
+            //Turmas = new List<Turma>();
 
         }
 
         public int Id { get; set; }
 
         [DisplayName("Turma")]
-        [Required(ErrorMessage = "O nome deve ser informado")]
-        public virtual List<Turma> Turma { get; set; }
+        [Required(ErrorMessage = "A turma deve ser informada")]
+        public virtual List<Turma> Turmas { get; set; }
 
         /*  [Required(ErrorMessage = "O nome deve ser informado")]
           [DisplayName("Nome")]

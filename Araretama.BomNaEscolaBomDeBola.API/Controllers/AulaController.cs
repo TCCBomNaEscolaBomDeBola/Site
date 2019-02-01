@@ -14,17 +14,18 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
     public class AulaController : ApiController
     {
 
-        AulaRepository AulaRepository;
-        PresencaRepository PresencaRepository;
-
-
         private DbContext _Context;
+        PresencaRepository PresencaRepository;
+        AulaRepository AulaRepository;
+        TurmaRepository TurmaRepository;
+
 
         private IAraretamaCommonRepository<Aula, int> _repository = new AulaRepository(new BomNaEscolaBomDeBolaDbContext());
         public AulaController()
         {
             PresencaRepository = new PresencaRepository(new BomNaEscolaBomDeBolaDbContext());
             AulaRepository = new AulaRepository(new BomNaEscolaBomDeBolaDbContext());
+            TurmaRepository = new TurmaRepository(new BomNaEscolaBomDeBolaDbContext());
 
         }
 
@@ -49,7 +50,8 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         {
             try
             {
-                aula.DataEnvio = DateTime.Now;
+                Aula au = _repository.ByKey(aula.Id);
+                au.DataEnvio = DateTime.Now;
                 List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
                 foreach (Presenca i in presencas)
                 {
@@ -63,7 +65,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                     }
 
                 }
-                _repository.Update(aula);
+                _repository.Update(au);
                 return CreatedAtRoute("DefaultApi", new { controller = "aula", Id = aula.Id }, aula);
 
             }
@@ -77,15 +79,13 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         // PUT api/values/5
 
         [System.Web.Http.HttpPut]
-        public IHttpActionResult Put(int id, [FromBody]Aula aula)
+        public IHttpActionResult Put([FromBody]Aula aula)
         {
             try
             {
-
-                aula.Id = id;
-                aula.DataEnvio = DateTime.Now;
-                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
-                foreach (Presenca i in presencas)
+                Aula au = _repository.ByKey(aula.Id);
+                au.DataEnvio = DateTime.Now;
+                foreach (Presenca i in aula.Presencas)
                 {
                     try
                     {
@@ -97,7 +97,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                     }
 
                 }
-                _repository.Update(aula);
+                _repository.Update(au);
                 return CreatedAtRoute("DefaultApi", new { controller = "aula", Id = aula.Id }, aula);
 
             }
@@ -108,56 +108,6 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
             }
         }
 
-
-      //  [EnableCors(origins: "*", methods: "*", headers: "*")]
-        [System.Web.Http.HttpDelete]
-        public IHttpActionResult Delete(int id)
-        {
-            try
-            {
-                _repository.DeleteByKey(id);
-                return Ok();
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-
-            }
-
-        }
      
-
-        // GET api/values/
-        //[System.Web.Http.HttpGet]
-        //public Aula Chamada(int id)
-        //{
-          //  return AulaRepository.DetalhesAula(id);
-        //}
-
-        // POST api/values
-     //   [EnableCors(origins: "*", methods: "*", headers: "*")]
-        //[System.Web.Http.HttpPost]
-        /*public IHttpActionResult Chamada(int id, Aula aula, FormCollection collection)
-        {
-            try
-            {
-                foreach (var i in aula.Presencas)
-                {
-                    PresencaRepository.Insert(i);
-                }
-                aula.DataEnvio = DateTime.Now;
-                _repository.Update(aula);
-
-
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }*/
-
-
     }
 }

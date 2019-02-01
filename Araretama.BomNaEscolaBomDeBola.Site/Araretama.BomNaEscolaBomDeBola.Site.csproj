@@ -920,6 +920,8 @@
     <Content Include="lib\cropper\src\js\template.js" />
     <Content Include="lib\cropper\src\js\utilities.js" />
     <Content Include="lib\cropper\src\js\variables.js" />
+    <Content Include="lib\datatables.net-bs\js\dataTables.bootstrap.js" />
+    <Content Include="lib\datatables.net-bs\js\dataTables.bootstrap.min.js" />
     <Content Include="lib\datatables.net-buttons-bs\css\buttons.bootstrap.css" />
     <Content Include="lib\datatables.net-buttons-bs\css\buttons.bootstrap.min.css" />
     <Content Include="lib\datatables.net-buttons-bs\js\buttons.bootstrap.js" />

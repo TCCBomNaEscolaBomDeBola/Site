@@ -400,6 +400,7 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\BeginCollectionItem.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\EntityFramework.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\EntityFramework.SqlServer.dll
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\JQueryUIHelpers.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AI.Agent.Intercept.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AI.DependencyCollector.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -504,6 +505,7 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Araretama.Common.Repository.Entity.pdb
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Araretama.Common.Repository.Entity.dll.config
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\AraretamaRepositoy.pdb
+D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\JQueryUIHelpers.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AspNetCore.Antiforgery.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AspNetCore.Authorization.xml
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\Microsoft.AspNetCore.Cors.xml
@@ -607,5 +609,3 @@ D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBo
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\obj\Debug\Araretama.BomNaEscolaBomDeBola.Site.csproj.CopyComplete
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\obj\Debug\Araretama.BomNaEscolaBomDeBola.Site.dll
 D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\obj\Debug\Araretama.BomNaEscolaBomDeBola.Site.pdb
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\JQueryUIHelpers.dll
-D:\TCC POS\TCC FINAL\Site\Araretama.BomNaEscolaBomDeBola\Araretama.BomNaEscolaBomDeBola.Site\bin\JQueryUIHelpers.xml

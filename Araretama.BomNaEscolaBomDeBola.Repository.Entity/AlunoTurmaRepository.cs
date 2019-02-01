@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace Araretama.BomNaEscolaBomDeBola.Repository.Entity
 {
-   /* public class AlunoTurmaRepository : AbstractRepository<AlunoTurma, int>
+
+    public class AlunoTurmaRepository : AbstractRepository<AlunoTurma, int>
     {
         private DbContext _context;
-
         public AlunoTurmaRepository(DbContext dbContext) : base(dbContext)
         {
             _context = dbContext;
         }
     }
-    */
 }

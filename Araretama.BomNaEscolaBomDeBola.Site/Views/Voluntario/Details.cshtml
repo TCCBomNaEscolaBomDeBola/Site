@@ -5,55 +5,116 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Voluntario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDTurma)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDTurma)
-        </dd>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Voluntário</h2>
+                <div class="alignright ">
+                    <a href="@Url.Action("Edit", "Voluntario", new { id = Model.Id } )" class="btn btn-round btn-primary">
+                        <i class="fa fa-edit"></i>
+                        Editar
+                    </a>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+                <section class="content invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12 invoice-header">
+                            <h1>
+                                <i class="fa fa-heart"></i>  @Html.DisplayFor(model => model.Nome)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
+                            </h1>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Contato)
+                                </strong>
 
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
+                                <br>@Html.DisplayFor(model => model.Contato)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </strong>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                                <br>@Html.DisplayFor(model => model.Email)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Senha)
+                                </strong>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                                <br>@Html.DisplayFor(model => model.Senha)
+                            </address>
+                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contato)
-        </dt>
+                      
 
-        <dd>
-            @Html.DisplayFor(model => model.Contato)
-        </dd>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    @if (Model != null && Model.Turma != null)
+                    {
+                        if (Model.Turma.Count > 0)
+                        {
+                            <div class="row">
+                                <div class="col-xs-12 table">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Turma</th>
+                                                <th>Alunos</th>
+                                                <th>Horario Inicial</th>
+                                                <th>Horário Final</th>
+                                                <th>Dia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-    </dl>
+                                            @for (var i = 0; i < Model.Turma.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].Nome)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].QuantidadeDeAlunos)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].HorarioInicial)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].HorarioFinal)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].DiaSemana)
+                                                    <td></td>
+                                                </tr>
+                                            }
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+

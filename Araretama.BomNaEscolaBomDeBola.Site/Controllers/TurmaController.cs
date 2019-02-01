@@ -32,7 +32,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
            
             List<Turma> a = _repository.All();
-            return View(a.ToPagedList((page ?? 1), 5));
+            return View(a.ToPagedList((page ?? 1), 10));
         }
 
         // GET: Presenca/Details/5

@@ -19,19 +19,20 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         private DbContext _Context;
 
         TurmaRepository TurmaRepository;
+        AlunoTurmaRepository AlunoTurmaRepository;
 
         private IAraretamaCommonRepository<Aluno, int> _repository = new AlunoRepository(new BomNaEscolaBomDeBolaDbContext());
 
         public AlunoController()
         {
             TurmaRepository = new TurmaRepository(new BomNaEscolaBomDeBolaDbContext());
-
+            AlunoTurmaRepository = new AlunoTurmaRepository(new BomNaEscolaBomDeBolaDbContext());
         }
 
 
 
         // GET: Aluno
-        public ActionResult Index(int? pagina, string ordemLetra="", string searchString="")
+        public ActionResult Index(int? page, string ordemLetra="", string searchString="")
         {
             List<Aluno> alunos =  _repository.All();
 
@@ -47,13 +48,25 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             }
 
 
-            return View(alunos.ToPagedList((pagina ?? 1), 12));
+            return View(alunos.ToPagedList((page ?? 1), 12));
         }
 
         // GET: Aluno/Details/5
         public ActionResult Details(int id)
         {
-            return View(_repository.ByKey(id));
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            Aluno aluno = _repository.ByKey(id);
+            List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
+            foreach (var alt in at)
+            {
+                aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
+            }
+            if (aluno.Turmas.Count < 1)
+            {
+                aluno.Turmas.Add(new Turma());
+            }
+            return View(aluno);
         }
 
 
@@ -85,7 +98,8 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             //   ViewBag.lista_turmas2 = dropDown;
             //   ViewBag.lista_turmas = lista_turmas;
             Aluno aluno = new Aluno();
-            aluno.Turma.Add(new Turma());
+            aluno.Turmas = new List<Turma>();
+            aluno.Turmas.Add(new Turma());
             return View(aluno);
         }
 
@@ -95,21 +109,16 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
-
-
+                aluno.Turmas = new List<Turma>();
 
                 _repository.Insert(aluno);
-                
-                foreach (Turma t in turmas)
+                for (int i = 0; i < turmas.Count; i++)
                 {
-                    Turma tur = TurmaRepository.ByKey(Convert.ToInt32(t.Id));
-                    tur.Alunos = new List<Aluno>();
-                    tur.Alunos.Add(aluno);
-                    tur.Voluntarios = new List<Voluntario>();
-                    aluno.Turma.Add(tur);
-                    TurmaRepository.Update(tur);
-
-
+                    AlunoTurma at = new AlunoTurma();
+                    at.Aluno_Id = aluno.Id;
+                    at.Turma_Id = turmas[i].Id;
+                    AlunoTurmaRepository.Insert(at);
+                   
                 }
 
                 return RedirectToAction("Index");
@@ -129,9 +138,14 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             List<Turma> Turmas = TurmaRepository.All();
             ViewBag.turmas = Turmas;
             Aluno aluno = _repository.ByKey(id);
-            if (aluno.Turma.Count < 1)
+            List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
+            foreach (var alt in at)
             {
-                aluno.Turma.Add(new Turma());
+                aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
+            }
+            if (aluno.Turmas.Count < 1)
+            {
+               aluno.Turmas.Add(new Turma());
             }
             return View(aluno);
         }
@@ -142,17 +156,32 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
+                
+                aluno.Turmas = new List<Turma>();
+                aluno.Turmas = turmas;
                 _repository.Update(aluno);
-                aluno.Turma = new List<Turma>();
-                foreach (Turma t in turmas)
+                List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
+                if (at.Count() > 0)
                 {
-                    Turma tur = TurmaRepository.ByKey(Convert.ToInt32(t.Id));
-                    tur.Alunos = new List<Aluno>();
-                    tur.Voluntarios = new List<Voluntario>();
-                    tur.Alunos[tur.Alunos.IndexOf(tur.Alunos.Where(p => p.Id == aluno.Id).FirstOrDefault())] = aluno;
-                    aluno.Turma.Add(tur);
-                    TurmaRepository.Update(tur);
+                    for (int i = 0; i < at.Count ; i++)
+                    {
+                        AlunoTurmaRepository.Delete(at[i]);
+                    }
                 }
+
+                for (int j = 0; j < turmas.Count ; j++)
+                {
+                    if((AlunoTurmaRepository.All().Where(p=> p.Aluno_Id == aluno.Id && p.Turma_Id == turmas[j].Id).ToList().Count) <= 0)
+                    {
+                        AlunoTurmaRepository.Insert(new AlunoTurma()
+                        {
+                            Aluno_Id = aluno.Id,
+                            Turma_Id = turmas[j].Id
+                        });
+                    }
+                  
+                }
+                              
 
 
                 return RedirectToAction("Index");
@@ -169,7 +198,19 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         // GET: Aluno/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_repository.ByKey(id));
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            Aluno aluno = _repository.ByKey(id);
+            List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
+            foreach (var alt in at)
+            {
+                aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
+            }
+            if (aluno.Turmas.Count < 1)
+            {
+                aluno.Turmas.Add(new Turma());
+            }
+            return View(aluno);
         }
 
         // POST: Aluno/Delete/5
@@ -178,6 +219,14 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
+                List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == id).ToList();
+                if (at.Count() > 0)
+                {
+                    for (int i = 0; i < at.Count; i++)
+                    {
+                        AlunoTurmaRepository.Delete(at[i]);
+                    }
+                }
                 _repository.DeleteByKey(id);
                 return RedirectToAction("Index");
 

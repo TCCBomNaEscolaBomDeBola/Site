@@ -5,162 +5,205 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<div>
-    <h4>Aluno</h4>
-    <hr />
 
-    <div class="col-sm-10 col-md-10 col-lg-12 col-sm-offset-1 col-md-offset-1">
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Nome)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Nome)
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Aluno</h2>
+                <div class="alignright ">
+                    <a href="@Url.Action("Edit", "Aluno", new { id = Model.Id } )" class="btn btn-round btn-primary">
+                        <i class="fa fa-edit"></i>
+                            Editar
+                    </a>
                 </div>
-
+                
+                <div class="clearfix"></div>
             </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.DataNasc)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.DataNasc)
-                </div>
+            <div class="x_content">
 
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Escola)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Escola)
-                </div>
+                <section class="content invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12 invoice-header">
+                            <h1>
+                                <i class="fa fa-user"></i>  @Html.DisplayFor(model => model.Nome)
 
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Serie)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Serie)
-                </div>
+                            </h1>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.DataNasc)
+                                </strong>
 
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Responsavel)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Responsavel)
-                </div>
+                                <br>@Html.DisplayFor(model => model.DataNasc)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Escola)
+                                </strong>
 
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Contato)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Contato)
-                </div>
+                                <br>@Html.DisplayFor(model => model.Escola)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Serie)
+                                </strong>
 
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Logradouro)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Logradouro)
-                </div>
-
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Numero)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Numero)
-                </div>
-
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Cep)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Cep)
-                </div>
-
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Bairro)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Bairro)
-                </div>
-
-            </div>
-        </p>
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>@Html.DisplayNameFor(model => model.Cidade)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Cidade)
-                </div>
-
-            </div>
-        </p>
-
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong> @Html.DisplayNameFor(model => model.Estado)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Estado)
-                </div>
-
-            </div>
-        </p>
-
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>  @Html.DisplayNameFor(model => model.Complemento)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Complemento)
-                </div>
-
-            </div>
-        </p>
-
-        <p>
-            <div class="col-sm-3 col-md-3">  <strong>  @Html.DisplayNameFor(model => model.Observacao)</strong></div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-                <div class="col-md-7 col-xs-12">
-                    @Html.DisplayFor(model => model.Observacao)
-                </div>
-
-            </div>
-        </p>
-
-        @if (Model != null && Model.Turma != null)
-        {
-            for (var i = 0; i < Model.Turma.Count; i++)
-            {
-                <p>
-                    <div class="col-sm-3 col-md-3">  <strong>  @Html.DisplayNameFor(model => model.Turma)</strong></div>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <div class="col-md-7 col-xs-12">
-                            @Html.DisplayFor(model => model.Turma[i].Nome)
+                                <br>@Html.DisplayFor(model => model.Serie)
+                            </address>
                         </div>
 
-                    </div>
-                </p>
-            }
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Responsavel)
+                                </strong>
 
-        }
+                                <br>@Html.DisplayFor(model => model.Responsavel)
+                            </address>
+                        </div>
+
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Contato)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Contato)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Logradouro)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Logradouro)
+                            </address>
+                        </div>
+
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Numero)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Numero)
+                            </address>
+                        </div>
+
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Cep)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Cep)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Bairro)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Bairro)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Cidade)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Cidade)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Estado)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Complemento)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Complemento)
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Observacao)
+                                </strong>
+
+                                <br>@Html.DisplayFor(model => model.Observacao)
+                            </address>
+                        </div>
+
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    @if (Model != null && Model.Turmas != null)
+                    {
+                        if (Model.Turmas.Count > 0) { 
+                        <div class="row">
+                            <div class="col-xs-12 table">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Turma</th>
+                                            <th>Alunos</th>
+                                            <th>Horario Inicial</th>
+                                            <th>Horário Final</th>
+                                            <th>Dia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @for (var i = 0; i < Model.Turmas.Count; i++)
+                                        {
+                                        <tr>
+                                            <td>@Html.DisplayFor(model => model.Turmas[i].Nome)</td>
+                                            <td>@Html.DisplayFor(model => model.Turmas[i].QuantidadeDeAlunos)</td>
+                                            <td>@Html.DisplayFor(model => model.Turmas[i].HorarioInicial)</td>
+                                            <td>@Html.DisplayFor(model => model.Turmas[i].HorarioFinal)</td>
+                                            <td>@Html.DisplayFor(model => model.Turmas[i].DiaSemana)
+                                            <td></td>
+                                        </tr>
+                                        }
+
+                       
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        }
+                    }
+                </section>
+            </div>
+        </div>
     </div>
-   
 </div>
 
-                <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                    @Html.ActionLink("Back to List", "Index")
-                </p>
+         

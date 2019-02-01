@@ -13,7 +13,7 @@
 <div>
 
     <h2><strong>Aula -  @Html.DisplayFor(model => model.DataAula) </strong></h2>
-    @Html.HiddenFor(model => model.IDTurma)
+    @Html.HiddenFor(model => model.Turma.Id)
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.DataAula)
 
@@ -23,7 +23,7 @@
         </p>
 
         <p>
-            <strong> @Html.DisplayNameFor(model => model.IDTurma)</strong>: @Html.DisplayFor(model => model.Turma.Nome)
+            <strong> @Html.DisplayNameFor(model => model.Turma)</strong>: @Html.DisplayFor(model => model.Turma.Nome)
         </p>
         <p>
             <strong> @Html.DisplayNameFor(model => model.AlunosPresentes)</strong>: @Html.DisplayFor(model => model.AlunosPresentes)

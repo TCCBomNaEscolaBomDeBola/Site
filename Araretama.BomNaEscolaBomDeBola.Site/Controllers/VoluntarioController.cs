@@ -16,25 +16,37 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
     public class VoluntarioController : Controller
     {
         private DbContext _Context;
+        TurmaRepository TurmaRepository;
 
         private IAraretamaCommonRepository<Voluntario, int> _repository = new VoluntarioRepository(new BomNaEscolaBomDeBolaDbContext());
+
+        public VoluntarioController()
+        {
+            TurmaRepository = new TurmaRepository(new BomNaEscolaBomDeBolaDbContext());
+        }
 
         // GET: Voluntario
         public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
         {
-            List<Voluntario> a = _repository.All();
-            return View(a.ToPagedList((page ?? 1), 5));
+           // List<Voluntario> a = _repository.All();
+            return View(_repository.All());
+            // return View(a.ToPagedList((page ?? 1), 10));
         }
 
         // GET: Voluntario/Details/5
         public ActionResult Details(int id)
         {
-            return View(_repository.ByKey(id));
+            Voluntario voluntario = _repository.ByKey(id);
+            voluntario.Turma.Add(TurmaRepository.All().Where(p => p.Id == voluntario.IDTurma).FirstOrDefault());
+            return View(voluntario);
         }
 
         // GET: Voluntario/Create
         public ActionResult Create()
         {
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+
             return View();
         }
 
@@ -47,46 +59,48 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
                  _repository.Insert(voluntario);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View(collection);
+                List<Turma> Turmas = TurmaRepository.All();
+                ViewBag.turmas = Turmas;
+
+                return View(voluntario);
             }
         }
 
         // GET: Voluntario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_repository.ByKey(id));
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            Voluntario voluntario = _repository.ByKey(id);
+            voluntario.Turma.Add(Turmas.Where(p => p.Id == voluntario.IDTurma).FirstOrDefault());
+            return View(voluntario);
         }
 
         // POST: Voluntario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Voluntario voluntario, FormCollection collection)
         {
             try
             {
-                Voluntario vol = new Voluntario
-                {
-                    Email = collection["Email"],
-                    IDTurma = Convert.ToInt32(collection["IDTurma"]),
-                    Senha = collection["Senha"]
-
-                };
-                vol.Id = id;
-
-                _repository.Update(vol);
+                _repository.Update(voluntario);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(collection);
+                List<Turma> Turmas = TurmaRepository.All();
+                ViewBag.turmas = Turmas;
+                return View(voluntario);
             }
         }
 
         // GET: Voluntario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_repository.ByKey(id));
+            Voluntario voluntario = _repository.ByKey(id);
+            voluntario.Turma.Add(TurmaRepository.All().Where(p => p.Id == voluntario.IDTurma).FirstOrDefault());
+            return View(voluntario);
         }
 
         // POST: Voluntario/Delete/5

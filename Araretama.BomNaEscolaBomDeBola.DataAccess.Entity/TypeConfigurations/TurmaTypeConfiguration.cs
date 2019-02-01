@@ -30,6 +30,7 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
                 .HasColumnName("TUR_IDADEMINIMA");
             Property(p => p.Nome)
                 .HasColumnName("TUR_NOME");
+
         }
     }
 }

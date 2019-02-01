@@ -10,6 +10,12 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 {
     public class Aula
     {
+        public Aula()
+        {
+            this.Presencas = new List<Presenca>();
+        }
+
+
         [Required]
         public int Id { get; set; }
 
@@ -24,15 +30,17 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 
         
         [DisplayName("Presenças")]
-        public List<Presenca> Presencas { get; set; }
+        public virtual List<Presenca> Presencas { get; set; }
 
-     //   [DataType(DataType.Time)]
-      //  [DisplayName("Horário")]
-      //  public DateTime? Horario { get; set; }
-
-        [NotMapped]
+        //   [DataType(DataType.Time)]
+        //  [DisplayName("Horário")]
+        //  public DateTime? Horario { get; set; }
         [DisplayName("Turma")]
-        public Turma Turma { get; set; }
+        public int?  TurmaID { get; set; }
+
+
+        [DisplayName("Turma")]
+        public virtual Turma Turma { get; set; }
 
         [NotMapped]
         [DisplayName("Alunos Presentes")]
@@ -53,10 +61,6 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
                 
             }
         }
-
-
-        [DisplayName("Turma")]
-        public int IDTurma { get; set; }
 
     }
 

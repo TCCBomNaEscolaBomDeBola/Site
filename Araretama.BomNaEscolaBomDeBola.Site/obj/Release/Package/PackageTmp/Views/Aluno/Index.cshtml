@@ -40,12 +40,12 @@
                             <div class="col-sm-12">
                                 <div class="left col-xs-12">
                                     <h2>@Html.DisplayFor(modelItem => item.Id) - @Html.DisplayFor(modelItem => item.Nome)</h2>
-                                    <p><strong>@Html.DisplayNameFor(model => model.First().Responsavel) </strong>  @Html.DisplayFor(modelItem => item.Responsavel) </p>
+                                    <p><strong><i class="fa fa-phone"></i> @Html.DisplayNameFor(model => model.First().Contato) </strong>  @Html.DisplayFor(modelItem => item.Contato) </p>
                                     <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> @Html.DisplayNameFor(model => model.First().DataNasc) :  @Html.DisplayFor(modelItem => item.DataNasc, "{0:dd/MM/yyyy HH:mm}" ) </li>
-                                        <li><i class="fa fa-phone"></i> @Html.DisplayNameFor(model => model.First().Escola) : @Html.DisplayFor(modelItem => item.Escola) </li>
+                                        <li><i class="fa fa-birthday-cake"></i> @Html.DisplayNameFor(model => model.First().DataNasc) :  @Html.DisplayFor(modelItem => item.DataNasc, "{0:dd/MM/yyyy HH:mm}" ) </li>
+                                        <li><i class="fa fa-university"></i> @Html.DisplayNameFor(model => model.First().Escola) : @Html.DisplayFor(modelItem => item.Escola) </li>
                                         <li>
-                                            <i class="fa fa-phone"></i>@Html.DisplayNameFor(model => model.First().Contato): @Html.DisplayFor(modelItem => item.Contato))
+                                            <i class="fa fa-star"></i> @Html.DisplayNameFor(model => model.First().Responsavel): @Html.DisplayFor(modelItem => item.Responsavel))
                                         </li>
                                     </ul>
 

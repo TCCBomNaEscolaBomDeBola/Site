@@ -14,20 +14,23 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         public int id { get; set; }
 
         [DisplayName("Aluno")]
-        [NotMapped]
-        public Aluno Aluno { get; set; }
+        public virtual Aluno Aluno { get; set; }
 
-        [Required]
-        [DisplayName("Aluno")]
-        public int IDAluno { get; set; }
+       [Required]
+       [DisplayName("Aluno")]
+       public int IDAluno { get; set; }
 
         [Required]
         [DisplayName("Presença")]
         public bool Presente { get; set; }
 
-        [Required]
-        [DisplayName("Aula")]
-        public int IDAula { get; set; }
+        [DisplayName("Aluno")]
+        public virtual Aula Aula { get; set; }
+
+
+          [Required]
+          [DisplayName("Aula")]
+          public int IDAula { get; set; }
     }
 }
 

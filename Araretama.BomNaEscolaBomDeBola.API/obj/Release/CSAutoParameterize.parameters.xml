@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="BomNaEscolaBomDeBolaDbContext-Web.config Connection String" description="BomNaEscolaBomDeBolaDbContext A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Server=198.71.226.6;DataBase=projetocursos;User Id=randis;Password=91200348" tags="SqlConnectionString">
+  <parameter name="BomNaEscolaBomDeBolaDbContext-Web.config Connection String" description="BomNaEscolaBomDeBolaDbContext A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Server=198.71.226.6;DataBase=projetocursos2;User Id=randisbeebo ;Password=@91200348" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\TCC\ POS\\TCC\ FINAL\\Site\\Araretama\.BomNaEscolaBomDeBola\\Araretama\.BomNaEscolaBomDeBola\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BomNaEscolaBomDeBolaDbContext']/@connectionString" />
   </parameter>
 </parameters>
