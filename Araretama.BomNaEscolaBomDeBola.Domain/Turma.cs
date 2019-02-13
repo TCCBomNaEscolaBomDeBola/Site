@@ -60,20 +60,11 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         [DisplayName("Quantidade de Aluno")]
         [Range(0, 1000)]
         [NotMapped]
-        public int QuantidadeDeAlunos
-        {
-            get
-            {
-                if (Alunos != null)
-                {
-                    return Alunos.Count;
-                }
-                return 0;
+        public int QuantidadeDeAlunos { get; set; }
 
-            }
-
-
-
-        }
+        [DisplayName("Quantidade de Aluno")]
+        [Range(0, 1000)]
+        [NotMapped]
+        public int QuantidadeDeVoluntarios { get; set; }
     }
 }

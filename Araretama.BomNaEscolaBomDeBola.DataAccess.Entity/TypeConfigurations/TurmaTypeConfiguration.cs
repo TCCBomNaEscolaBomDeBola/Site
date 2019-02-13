@@ -19,17 +19,17 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
                     .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                     .IsRequired();
             Property(p => p.DiaSemana)
-                   .HasColumnName("TUR_DIASEMANA");
+                    .HasColumnName("TUR_DIASEMANA");
             Property(p => p.HorarioInicial)
-                  .HasColumnName("TUR_HORARIOINICIAL");
+                    .HasColumnName("TUR_HORARIOINICIAL");
             Property(p => p.HorarioFinal)
-                  .HasColumnName("TUR_HOORARIOFINAL");
+                    .HasColumnName("TUR_HOORARIOFINAL");
             Property(p => p.IdadeMaxima)
-                  .HasColumnName("TUR_IDADEMAXIMA");
+                    .HasColumnName("TUR_IDADEMAXIMA");
             Property(p => p.IdadeMinima)
-                .HasColumnName("TUR_IDADEMINIMA");
+                    .HasColumnName("TUR_IDADEMINIMA");
             Property(p => p.Nome)
-                .HasColumnName("TUR_NOME");
+                    .HasColumnName("TUR_NOME");
 
         }
     }

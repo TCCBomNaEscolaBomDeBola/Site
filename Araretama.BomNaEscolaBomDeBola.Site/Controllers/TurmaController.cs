@@ -28,11 +28,17 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         }
 
         // GET: Turma
-        public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
+        public ActionResult Index()
         {
            
             List<Turma> a = _repository.All();
-            return View(a.ToPagedList((page ?? 1), 10));
+            foreach (var i in a)
+            {
+                i.Alunos = AlunoRepository.AlunosTurma(i.Id);
+                i.Voluntarios = VoluntarioRepository.VoluntarioTurma(i.Id);
+                i.QuantidadeDeAlunos = i.Alunos.Count();
+            }
+            return View(a);
         }
 
         // GET: Presenca/Details/5
@@ -41,116 +47,66 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             Turma turma = _repository.ByKey(id);
             turma.Alunos = AlunoRepository.AlunosTurma(id);
             turma.Voluntarios = VoluntarioRepository.VoluntarioTurma(id);
+            turma.QuantidadeDeAlunos = turma.Alunos.Count();
             return View(turma);
         }
-        // GET: Turma/Create
+
         public ActionResult Create()
         {
-
-          
-
             return View();
         }
 
-        // POST: Turma/Create
         [HttpPost]
         public ActionResult Create(Turma turma, FormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                /*
-
-                var enumData = from Dia e in Enum.GetValues(typeof(Dia))
-                               select new
-                               {
-                                   ID = e.ToString(),
-                                   Name = e.ToString()
-                               };
-
-                ViewBag.DiaSemana = new SelectList(enumData, "ID", "Name");
-
-
-                 foreach (var item in Turmas)
-                 {
-
-                     lista_turmas.Add(
-                         new SelectListItem()
-                         {
-                             Text = item.Nome,
-                             Value = item.Id.ToString(),
-                         });
-                 }
-                 SelectList dropDown = new SelectList(lista_turmas, "Value", "Text");
-       */
-
-
-
-                /* Turma turma = new Turma
-                 {
-                     HorarioFinal = Convert.ToDateTime(collection["HorarioFinal"]),
-                     HorarioInicial = Convert.ToDateTime(collection["HorarioInicial"]),
-                     IdadeMaxima = Convert.ToInt32(collection["IdadeMaxima"]),
-                     IdadeMinima = Convert.ToInt32(collection["IdadeMinima"]),
-                     Nome = collection["Nome"]
-
-                 };*/
-                if (ModelState.IsValid)
+                try
                 {
-
                     _repository.Insert(turma);
-
                     return RedirectToAction("Index");
                 }
-                else
+                catch
                 {
-                    return View(turma);
+                    return View();
                 }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
-
-        // GET: Turma/Edit/5
+        
         public ActionResult Edit(int id)
         {
             return View(_repository.ByKey(id));
         }
 
-        // POST: Turma/Edit/5
         [HttpPost]
         public ActionResult Edit(int id,Turma turma, FormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                /*  Turma turma = new Turma
+                try
                 {
-                    DiaSemana = collection["DiaSemana"],
-                    HorarioFinal = Convert.ToDateTime(collection["HorarioFinal"]),
-                    HorarioInicial = Convert.ToDateTime(collection["HorarioInicial"]),
-                    IdadeMaxima = Convert.ToInt32(collection["IdadeMaxima"]),
-                    IdadeMinima = Convert.ToInt32(collection["IdadeMinima"]),
-                    Nome = collection["Nome"]
-
-                };*/
-                turma.Id = id;
-                _repository.Update(turma);
-                return RedirectToAction("Index");
+                    turma.Id = id;
+                    _repository.Update(turma);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
-        // GET: Turma/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_repository.ByKey(id));
+            Turma turma = _repository.ByKey(id);
+            turma.Alunos = AlunoRepository.AlunosTurma(id);
+            turma.Voluntarios = VoluntarioRepository.VoluntarioTurma(id);
+            turma.QuantidadeDeAlunos = turma.Alunos.Count();
+            return View(turma);
         }
 
-        // POST: Turma/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -162,7 +118,11 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             }
             catch (Exception ex)
             {
-                return View(_repository.ByKey(id));
+                Turma turma = _repository.ByKey(id);
+                turma.Alunos = AlunoRepository.AlunosTurma(id);
+                turma.Voluntarios = VoluntarioRepository.VoluntarioTurma(id);
+                 turma.QuantidadeDeAlunos = turma.Alunos.Count();
+                return View(turma);
 
             }
         }

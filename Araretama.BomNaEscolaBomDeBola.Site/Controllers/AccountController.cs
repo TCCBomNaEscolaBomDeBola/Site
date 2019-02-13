@@ -29,49 +29,48 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             return View();
         }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Login(Voluntario login, string returnUrl)
-    {
-        if (ModelState.IsValid) {
-        
-            var vLogin = VoluntarioRepository.Login(login);
-            if (vLogin != null)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Voluntario login, string returnUrl)
+        {
+            if (ModelState.IsValid)
             {
-                       
-                if (Equals(vLogin.Senha, login.Senha))
+                var vLogin = VoluntarioRepository.Login(login);
+                if (vLogin != null)
                 {
-                    FormsAuthentication.SetAuthCookie(vLogin.Email, false);
-                    if (Url.IsLocalUrl(returnUrl)
-                    && returnUrl.Length > 1
-                    && returnUrl.StartsWith("/")
-                    && !returnUrl.StartsWith("//")
-                    && returnUrl.StartsWith("/\\"))
+                    if (Equals(vLogin.Senha, login.Senha))
                     {
-                        return Redirect(returnUrl);
+                        FormsAuthentication.SetAuthCookie(vLogin.Email, false);
+                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1
+                            && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//")
+                            && returnUrl.StartsWith("/\\"))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        Session["Nome"] = vLogin.Nome;
+                        return RedirectToAction("Index", "Admin");
                     }
-
-                    Session["Nome"] = vLogin.Nome;
-
-                    return RedirectToAction("Index", "Admin");
-                }    
-                else
-                {
-                    ModelState.AddModelError("", "Senha informada Inválida!!!");
-                    return View();
+                    else
+                    {
+                        ModelState.AddModelError("", "Senha informada Inválida!!!");
+                        return View();
+                    }
                 }
             }
-                   
-        }                                                                        
-        else
+            else
+            {
+                ModelState.AddModelError("", "Login informado inválido!!!");
+                return View();
+            }
+            return View();
+        }
+        public ActionResult Logout()
         {
-            ModelState.AddModelError("", "Login informado inválido!!!");
-            return View();
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
         }
-            return View();
-        }
-       
-   
 
     }
 }

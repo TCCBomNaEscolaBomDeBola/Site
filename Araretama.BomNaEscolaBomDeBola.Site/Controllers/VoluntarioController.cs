@@ -25,15 +25,11 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             TurmaRepository = new TurmaRepository(new BomNaEscolaBomDeBolaDbContext());
         }
 
-        // GET: Voluntario
-        public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
+        public ActionResult Index()
         {
-           // List<Voluntario> a = _repository.All();
             return View(_repository.All());
-            // return View(a.ToPagedList((page ?? 1), 10));
         }
 
-        // GET: Voluntario/Details/5
         public ActionResult Details(int id)
         {
             Voluntario voluntario = _repository.ByKey(id);
@@ -41,7 +37,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             return View(voluntario);
         }
 
-        // GET: Voluntario/Create
+
         public ActionResult Create()
         {
             List<Turma> Turmas = TurmaRepository.All();
@@ -50,25 +46,27 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             return View();
         }
 
-        // POST: Voluntario/Create
         [HttpPost]
         public ActionResult Create(Voluntario voluntario, FormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                 _repository.Insert(voluntario);
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                List<Turma> Turmas = TurmaRepository.All();
-                ViewBag.turmas = Turmas;
+                try
+                {
+                    _repository.Insert(voluntario);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    List<Turma> Turmas = TurmaRepository.All();
+                    ViewBag.turmas = Turmas;
 
-                return View(voluntario);
+                    return View(voluntario);
+                }
             }
+            return View(voluntario);
         }
-
-        // GET: Voluntario/Edit/5
+        
         public ActionResult Edit(int id)
         {
             List<Turma> Turmas = TurmaRepository.All();
@@ -78,32 +76,33 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             return View(voluntario);
         }
 
-        // POST: Voluntario/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Voluntario voluntario, FormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _repository.Update(voluntario);
-                return RedirectToAction("Index");
+                try
+                {
+                    _repository.Update(voluntario);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    List<Turma> Turmas = TurmaRepository.All();
+                    ViewBag.turmas = Turmas;
+                    return View(voluntario);
+                }
             }
-            catch
-            {
-                List<Turma> Turmas = TurmaRepository.All();
-                ViewBag.turmas = Turmas;
-                return View(voluntario);
-            }
+            return View(voluntario);
         }
-
-        // GET: Voluntario/Delete/5
+        
         public ActionResult Delete(int id)
         {
             Voluntario voluntario = _repository.ByKey(id);
             voluntario.Turma.Add(TurmaRepository.All().Where(p => p.Id == voluntario.IDTurma).FirstOrDefault());
             return View(voluntario);
         }
-
-        // POST: Voluntario/Delete/5
+        
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

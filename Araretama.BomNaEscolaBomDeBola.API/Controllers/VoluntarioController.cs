@@ -31,14 +31,13 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
             return _repository.All();
         }
 
-        // GET api/values/
         [System.Web.Http.HttpGet]
         public Voluntario Get(int id)
         {
             return _repository.ByKey(id);
         }
 
-        // POST api/values
+
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         [System.Web.Http.HttpPost]
         public IHttpActionResult Post([FromBody]Voluntario voluntario)
@@ -74,9 +73,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
             }
         }
 
-        // DELETE api/values/5
-        //   [DisableCors]
-        //   [System.Web.Http.Route("api/voluntario/{id}")]
+
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         [System.Web.Http.HttpDelete]
         public IHttpActionResult Delete(int id)

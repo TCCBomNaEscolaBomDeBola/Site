@@ -30,21 +30,19 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 
        
 
-        // GET: Aula
-        public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
+        public ActionResult Index()
         {
-            List<Aula> a = _repository.All().OrderBy(x => x.DataAula).ToList(); ;
+            List<Aula> a = _repository.All().OrderBy(x => x.DataAula).ToList(); 
             
-            return View(a.ToPagedList((page ?? 1), 10));
+            return View(a);
         }
 
-        // GET: Aula/Details/5
         public ActionResult Details(int id)
         {
             return View(AulaRepository.DetalhesAula(id));
         }
 
-        // GET: Aula/Create
+
         public ActionResult Create()
         {
             List<Turma> Turmas = TurmaRepository.All();
@@ -52,41 +50,38 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             return View();
         }
 
-        // POST: Aula/Create
+
         [HttpPost]
         public ActionResult Create(Aulas aulas, FormCollection collection)
         {
-            try
+            List<Turma> Turmas = TurmaRepository.All();
+            ViewBag.turmas = Turmas;
+            if (ModelState.IsValid)
             {
-                Turma turma = TurmaRepository.ByKey(aulas.IDTurma);
-               
-                int dia = this.DiaDaSemana(turma.DiaSemana);
-
-                while (aulas.DataInicial <= aulas.DataFinal)
+                try
                 {
-                    if ((int)aulas.DataInicial.DayOfWeek == dia)
+                    Turma turma = TurmaRepository.ByKey(aulas.IDTurma);
+                    int dia = this.DiaDaSemana(turma.DiaSemana);
+                    while (aulas.DataInicial <= aulas.DataFinal)
                     {
-  
-                        Aula aula = new Aula();
-                        aula.DataAula = aulas.DataInicial;
-                        aula.TurmaID = aulas.IDTurma;
-                      //  aula.Turma = TurmaRepository.ByKey(aulas.IDTurma);
-                        aula.DataEnvio = DateTime.Now;
-
-                        _repository.Insert(aula);
-
+                        if ((int)aulas.DataInicial.DayOfWeek == dia)
+                        {
+                            Aula aula = new Aula();
+                            aula.DataAula = aulas.DataInicial;
+                            aula.TurmaID = aulas.IDTurma;
+                            aula.DataEnvio = DateTime.Now;
+                            _repository.Insert(aula);
+                        }
+                        aulas.DataInicial = aulas.DataInicial.AddDays(1);
                     }
-
-                    aulas.DataInicial = aulas.DataInicial.AddDays(1);
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                catch (Exception e)
+                {
+                    return View();
+                }
             }
-            catch (Exception e)
-            {
-                List<Turma> Turmas = TurmaRepository.All();
-                ViewBag.turmas = Turmas;
-                return View();
-            }
+            return View();
         }
 
         private int DiaDaSemana(string dia)
@@ -127,15 +122,13 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
                   
             return 0;
         }
+        /*
 
-
-        // GET: Aula/Chamada
         public ActionResult Chamada(int id)
         {
             return View(AulaRepository.DetalhesAula(id));
         }
 
-        // POST: Aula/Chamada
         [HttpPost]
         public ActionResult Chamada(int id, Aula aula, FormCollection collection)
         {
@@ -163,55 +156,54 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             }
             catch (Exception ex)
             {
-                ViewData["erro"] = "Não foi possível salvar os dados, tente novament";
                 return View(AulaRepository.DetalhesAula(id));
             }
         }
 
-        // GET: Aula/Edit/5
+    */
         public ActionResult Edit(int id)
         {
             return View(AulaRepository.DetalhesAula(id));
         }
+        
 
-        // POST: Aula/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Aula aula,FormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                Aula au = _repository.ByKey(id);
-                au.DataEnvio = DateTime.Now;
-                List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
-                foreach (Presenca i in presencas)
+                try
                 {
-                    try
+                    Aula au = _repository.ByKey(id);
+                    au.DataEnvio = DateTime.Now;
+                    List<Presenca> presencas = aula.Presencas.FindAll(p => p.Presente);
+                    foreach (Presenca i in presencas)
                     {
-                        PresencaRepository.Update(i);
+                        try
+                        {
+                            PresencaRepository.Update(i);
+                        }
+                        catch
+                        {
+                            PresencaRepository.Insert(i);
+                        }
                     }
-                    catch
-                    {
-                        PresencaRepository.Insert(i);
-                    }
-                    
+                    _repository.Update(au);
+                    return RedirectToAction("Index");
                 }
-                _repository.Update(au);
-                return RedirectToAction("Index");
+                catch (Exception ex)
+                {
+                    return View(AulaRepository.DetalhesAula(id));
+                }
             }
-            catch (Exception ex)
-            {
-                ViewData["erro"] = "Não foi possível salvar os dados, tente novament";
-                return View(AulaRepository.DetalhesAula(id));
-            }
+            return View(AulaRepository.DetalhesAula(id));
         }
 
-        // GET: Aula/Delete/5
         public ActionResult Delete(int id)
         {
             return View(_repository.ByKey(id));
         }
 
-        // POST: Aula/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, Aula aula, FormCollection collection)
         {
@@ -219,12 +211,10 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
             {
                 _repository.DeleteByKey(id);
                 return RedirectToAction("Index");
-
             }
             catch (Exception ex)
             {
                 return View(_repository.ByKey(id));
-
             }
         }
     }

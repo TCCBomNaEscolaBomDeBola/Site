@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Araretama.BomNaEscolaBomDeB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Araretama.Common.Repository.Entity", "Araretama.Common.Repository.Entity\Araretama.Common.Repository.Entity.csproj", "{8DDD5992-D79A-455A-AEAB-1384E9984700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Araretama.BomNaEscolaBomDeBola.Domain", "Araretama.BomNaEscolaBomDeBola.Domain\Araretama.BomNaEscolaBomDeBola.Domain.csproj", "{2B4C50FA-9C32-4B78-8FA1-256B858F5A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Araretama.BomNaEscolaBomDeBola.Domain", "Araretama.BomNaEscolaBomDeBola.Domain\Araretama.BomNaEscolaBomDeBola.Domain.csproj", "{2B4C50FA-9C32-4B78-8FA1-256B858F5A8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -69,29 +69,26 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li>
+                                    <li class="active">
                                         <a class="page-scroll" href="/home#home">Início</a>
                                     </li>
                                     <li>
                                         <a class="page-scroll" href="/home#about">Sobre nós</a>
                                     </li>
                                     <li>
-                                        <a class="page-scroll" href="/Home#services">Services</a>
-                                    </li>
-                                    <li>
-                                        <a class="page-scroll" href="/home#team">Time</a>
-                                    </li>
-                                    <li>
                                         <a class="page-scroll" href="/home#portfolio">Galeria</a>
-                                    </li>
-                                    <li>
-                                        <a class="page-scroll" href="/home#blog">Blog</a>
                                     </li>
                                     <li>
                                         <a class="page-scroll" href="/home#contact">Contato</a>
                                     </li>
-                                    <li class="active">
-                                        @Html.ActionLink("Entrar", "Login", "Account", null, new { @class = "page-scroll" });
+                                    <li>
+                                        @Html.ActionLink("Entrar", "Login", "Account", null, new { @class = "page-scroll" })
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/bomnaescola.bomdebola.1" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-google"></i></a>
                                     </li>
                                 </ul>
                             </div>

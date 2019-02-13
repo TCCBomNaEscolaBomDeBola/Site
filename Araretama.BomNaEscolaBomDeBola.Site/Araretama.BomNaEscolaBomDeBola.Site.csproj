@@ -550,7 +550,9 @@
     <Content Include="Content\images\welcome.tiff" />
     <Content Include="Content\img\about\1.jpg" />
     <Content Include="Content\img\about\2.jpg" />
+    <Content Include="Content\img\about\logo.jpg" />
     <Content Include="Content\img\apple-touch-icon.png" />
+    <Content Include="Content\img\background\bbbe_fundo.jpg" />
     <Content Include="Content\img\background\bg1.jpg" />
     <Content Include="Content\img\background\slider1.jpg" />
     <Content Include="Content\img\blog\1.jpg" />
@@ -561,6 +563,12 @@
     <Content Include="Content\img\blog\6.jpg" />
     <Content Include="Content\img\blog\b02.jpg" />
     <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\galeria\bbbe_1.jpg" />
+    <Content Include="Content\img\galeria\bbbe_2.jpg" />
+    <Content Include="Content\img\galeria\bbbe_3.jpg" />
+    <Content Include="Content\img\galeria\bbbe_4.jpg" />
+    <Content Include="Content\img\galeria\bbbe_5.jpg" />
+    <Content Include="Content\img\galeria\bbbe_6.jpg" />
     <Content Include="Content\img\portfolio\1.jpg" />
     <Content Include="Content\img\portfolio\2.jpg" />
     <Content Include="Content\img\portfolio\3.jpg" />
@@ -568,6 +576,10 @@
     <Content Include="Content\img\portfolio\5.jpg" />
     <Content Include="Content\img\portfolio\6.jpg" />
     <Content Include="Content\img\preloader.gif" />
+    <Content Include="Content\img\slider\bbbe_slider1.jpg" />
+    <Content Include="Content\img\slider\bbbe_slider2.jpg" />
+    <Content Include="Content\img\slider\bbbe_slider3.jpg" />
+    <Content Include="Content\img\slider\bbbe_slider4.jpg" />
     <Content Include="Content\img\slider\slider1 - Copy.jpg" />
     <Content Include="Content\img\slider\slider1.jpg" />
     <Content Include="Content\img\slider\slider2.jpg" />
@@ -4966,7 +4978,7 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Dashboard.cshtml" />
@@ -4997,10 +5009,12 @@
     <Content Include="Views\Voluntario\Create.cshtml" />
     <Content Include="Views\Voluntario\Edit.cshtml" />
     <Content Include="Views\Voluntario\Delete.cshtml" />
-    <Content Include="Views\Aula\Chamada.cshtml" />
     <Content Include="Views\Aluno\Turmas.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Shared\DisplayTemplate\DateTime.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\___Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5014,7 +5028,6 @@
     <Folder Include="lib\datatables.net-bs\datatables.net-responsive\" />
     <Folder Include="lib\datatables.net-bs\datatables.net-scroller-bs\" />
     <Folder Include="lib\datatables.net-bs\datatables.net-scroller\" />
-    <Folder Include="Views\Aulas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

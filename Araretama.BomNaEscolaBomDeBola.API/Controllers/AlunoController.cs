@@ -29,7 +29,7 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
 
         [System.Web.Http.HttpGet]
         public List<Aluno> Get()
-        { 
+        {
             List<Aluno> alunos = _repository.All();
             List<Turma> Turmas = TurmaRepository.All();
             foreach (Aluno alu in alunos)
@@ -39,25 +39,10 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                 {
                     alu.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
                 }
-
             }
-
             return alunos;
         }
 
-        [System.Web.Http.HttpGet]
-        public Aluno GetAlunoByID(int key)
-        {
-            List<Turma> Turmas = TurmaRepository.All();
-            Aluno aluno = _repository.ByKey(key);
-            List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
-            foreach (var alt in at)
-            {
-                aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
-            }
-            return aluno;
-        }
-        // GET api/values/
         [System.Web.Http.HttpGet]
         public Aluno Get(int id)
         {
@@ -81,14 +66,12 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                 turmas = aluno.Turmas;
                 aluno.Turmas = new List<Turma>();
                 _repository.Insert(aluno);
-
                 for (int i = 0; i < turmas.Count; i++)
                 {
                     AlunoTurma at = new AlunoTurma();
                     at.Aluno_Id = aluno.Id;
                     at.Turma_Id = turmas[i].Id;
                     AlunoTurmaRepository.Insert(at);
-
                 }
                 List<Turma> Turmas = TurmaRepository.All();
                 List<AlunoTurma> at2 = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
@@ -97,14 +80,11 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                     aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
                 }
                 return CreatedAtRoute("DefaultApi", new { controller = "Aluno", id = aluno.Id }, aluno);
-
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-
         }
 
         [System.Web.Http.HttpPut]
@@ -124,18 +104,12 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                         AlunoTurmaRepository.Delete(at[i]);
                     }
                 }
-
                 for (int j = 0; j < turmas.Count; j++)
                 {
                     if ((AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id && p.Turma_Id == turmas[j].Id).ToList().Count) <= 0)
                     {
-                        AlunoTurmaRepository.Insert(new AlunoTurma()
-                        {
-                            Aluno_Id = aluno.Id,
-                            Turma_Id = turmas[j].Id
-                        });
+                        AlunoTurmaRepository.Insert(new AlunoTurma() { Aluno_Id = aluno.Id, Turma_Id = turmas[j].Id});
                     }
-
                 }
                 List<Turma> Turmas = TurmaRepository.All();
                 List<AlunoTurma> at2 = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
@@ -144,14 +118,11 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                     aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
                 }
                 return CreatedAtRoute("DefaultApi", new { controller = "Aluno", id = aluno.Id }, aluno);
-
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-
             }
-           
         }
 
         [System.Web.Http.HttpDelete]
@@ -177,7 +148,19 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
 
             }
         }
-
+        /*
+        [System.Web.Http.HttpGet]
+        public Aluno GetAlunoByID(int key)
+        {
+            List<Turma> Turmas = TurmaRepository.All();
+            Aluno aluno = _repository.ByKey(key);
+            List<AlunoTurma> at = AlunoTurmaRepository.All().Where(p => p.Aluno_Id == aluno.Id).ToList();
+            foreach (var alt in at)
+            {
+                aluno.Turmas.Add(Turmas.Where(p => p.Id == alt.Turma_Id).FirstOrDefault());
+            }
+            return aluno;
+        } */
 
     }
 }

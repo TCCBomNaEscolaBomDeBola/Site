@@ -5,61 +5,121 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Voluntário</h2>
+                <div class="alignright ">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Voluntario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDTurma)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDTurma)
-        </dd>
+                    @using (Html.BeginForm("Delete", "Voluntario", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-actions no-color">
+                            <button type="submit" value="Delete" class="btn btn-round btn-danger">
+                                <i class="fa fa-trash"></i> Excluir
+                            </button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+                        </div>
+                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
 
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
+                <section class="content invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12 invoice-header">
+                            <h1>
+                                <i class="fa fa-heart"></i>  @Html.DisplayFor(model => model.Nome)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                            </h1>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Contato)
+                                </strong>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                                <br>@Html.DisplayFor(model => model.Contato)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </strong>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contato)
-        </dt>
+                                <br>@Html.DisplayFor(model => model.Email)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>
+                                    @Html.DisplayNameFor(model => model.Senha)
+                                </strong>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contato)
-        </dd>
+                                <br>@Html.DisplayFor(model => model.Senha)
+                            </address>
+                        </div>
 
-    </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    @if (Model != null && Model.Turma != null)
+                    {
+                        if (Model.Turma.Count > 0)
+                        {
+                            <div class="row">
+                                <div class="col-xs-12 table">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Turma</th>
+                                                <th>Alunos</th>
+                                                <th>Horario Inicial</th>
+                                                <th>Horário Final</th>
+                                                <th>Dia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @for (var i = 0; i < Model.Turma.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].Nome)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].QuantidadeDeAlunos)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].HorarioInicial)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].HorarioFinal)</td>
+                                                    <td>@Html.DisplayFor(model => model.Turma[i].DiaSemana)
+                                                    <td></td>
+                                                </tr>
+                                            }
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </section>
+            </div>
         </div>
-    }
+    </div>
 </div>
+

@@ -33,18 +33,22 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         [System.Web.Http.HttpGet]
         public List<Aula> Get()
         {
-            return _repository.All();
+            List<Aula> aulas = _repository.All();
+            for(int i = 0; i< aulas.Count; i++)
+            {
+                aulas[i] = AulaRepository.DetalhesAula(aulas[i].Id);
+            }
+
+            return aulas;
         }
 
-        // GET api/values/
         [System.Web.Http.HttpGet]
         public Aula Get(int id)
         {
             return AulaRepository.DetalhesAula(id);
         }
 
-        // POST api/values
-      //  [EnableCors(origins: "*", methods: "*", headers: "*")]
+
         [System.Web.Http.HttpPost]
         public IHttpActionResult Post([FromBody]Aula aula)
         {
@@ -63,11 +67,9 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
                     {
                         PresencaRepository.Insert(i);
                     }
-
                 }
                 _repository.Update(au);
                 return CreatedAtRoute("DefaultApi", new { controller = "aula", Id = aula.Id }, aula);
-
             }
             catch (Exception ex)
             {

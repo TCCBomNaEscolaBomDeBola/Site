@@ -1,5 +1,4 @@
-﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<Araretama.BomNaEscolaBomDeBola.Domain.Turma>
+﻿@model IEnumerable<Araretama.BomNaEscolaBomDeBola.Domain.Turma>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
@@ -14,25 +13,25 @@
         <thead>
             <tr class="headings">
                 <th>
-                    @Html.DisplayNameFor(model => model.First().Nome)
+                    @Html.DisplayNameFor(model => model.Nome)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().IdadeMinima)
+                    @Html.DisplayNameFor(model => model.IdadeMinima)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().IdadeMaxima)
+                    @Html.DisplayNameFor(model => model.IdadeMaxima)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().QuantidadeDeAlunos)
+                    @Html.DisplayNameFor(model => model.QuantidadeDeAlunos)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().HorarioInicial)
+                    @Html.DisplayNameFor(model => model.HorarioInicial)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().HorarioFinal)
+                    @Html.DisplayNameFor(model => model.HorarioFinal)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.First().DiaSemana)
+                    @Html.DisplayNameFor(model => model.DiaSemana)
                 </th>
                 <th></th>
             </tr>

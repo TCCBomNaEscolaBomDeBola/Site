@@ -28,19 +28,15 @@ namespace Araretama.BomNaEscolaBomDeBola.API.Controllers
         {
             AlunoRepository = new AlunoRepository(new BomNaEscolaBomDeBolaDbContext());
             VoluntarioRepository = new VoluntarioRepository(new BomNaEscolaBomDeBolaDbContext());
-
         }
-
 
         [System.Web.Http.HttpGet]
         public List<Turma> Get()
         {
-
             List<Turma> a = _repository.All();
             return a;
         }
 
-        // GET api/values/
         [System.Web.Http.HttpGet]
         public Turma Get(int id)
         {
